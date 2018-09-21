@@ -38,6 +38,7 @@
             android:layout_height="match_parent"
             android:layout_toRightOf="@+id/ic_magnify"
             android:layout_centerVertical="true"
+            android:inputType="text"
             android:textSize="15sp"
             android:textColor="#000"
             android:id="@+id/input_search"
