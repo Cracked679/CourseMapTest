@@ -19,6 +19,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -95,6 +96,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     //widgets
     private AutoCompleteTextView mSearchText;
     private ImageView mGps, mInfo, mPlacePicker;
+    private Button mShare;
 
 
     //vars
@@ -114,7 +116,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         mGps = (ImageView) findViewById(R.id.ic_gps);
         mInfo = (ImageView) findViewById(R.id.place_info);
         mPlacePicker = (ImageView) findViewById(R.id.place_picker);
-
+        mShare = (Button)findViewById(R.id.share_btn);
         getLocationPermission();
 
     }
@@ -190,6 +192,14 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                 } catch (GooglePlayServicesNotAvailableException e) {
                     Log.e(TAG, "onClick: GooglePlayServicesNotAvailableException: " + e.getMessage() );
                 }
+            }
+        });
+
+        mShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent_share = new Intent(MapActivity.this,Select_user.class);
+                startActivity(intent_share);
             }
         });
 
